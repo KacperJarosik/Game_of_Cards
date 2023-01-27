@@ -62,8 +62,8 @@ def blackjack(blackjack_deck):
     while user_points < 21:
         if not user_points == 0:
             print("Do you wanna take another card?")
-            actually_choice = input("print \"yes\" or \"no\"\n")
-            if actually_choice == "no":
+            choice = input("print \"yes\" or \"no\"\n")
+            if choice == "no":
                 break
         randomly_index = random.randint(0, len(blackjack_deck))
         userdeck.append(blackjack_deck.pop(randomly_index))
