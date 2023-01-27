@@ -13,7 +13,7 @@ def blackjack(blackjack_deck):
         if fdeck[-1][2] == "four":
             fpoints += 4
         if fdeck[-1][2] == "five":
-            fpoints += 10
+            fpoints += 5
         if fdeck[-1][2] == "six":
             fpoints += 6
         if fdeck[-1][2] == "seven":
