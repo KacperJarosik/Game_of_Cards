@@ -4,35 +4,23 @@ import random
 def blackjack(blackjack_deck):
     # functions
     def points_count(fpoints, fdeck):
+        searching_points = {"two": 2,
+                            "three": 3,
+                            "four": 4,
+                            "five": 5,
+                            "six": 6,
+                            "seven": 7,
+                            "eight": 8,
+                            "nine": 9,
+                            "ten": 10,
+                            "jack": 10,
+                            "queen": 10,
+                            "king": 10,
+                            "ace": 11}
+        fpoints += searching_points[fdeck[-1][2]]
+        # Ace gives 11 or 1 points
         how_many_aces = 0
         how_many_used_aces = 0
-        if fdeck[-1][2] == "two":
-            fpoints += 2
-        if fdeck[-1][2] == "three":
-            fpoints += 3
-        if fdeck[-1][2] == "four":
-            fpoints += 4
-        if fdeck[-1][2] == "five":
-            fpoints += 5
-        if fdeck[-1][2] == "six":
-            fpoints += 6
-        if fdeck[-1][2] == "seven":
-            fpoints += 7
-        if fdeck[-1][2] == "eight":
-            fpoints += 8
-        if fdeck[-1][2] == "nine":
-            fpoints += 9
-        if fdeck[-1][2] == "ten":
-            fpoints += 10
-        if fdeck[-1][2] == "jack":
-            fpoints += 10
-        if fdeck[-1][2] == "queen":
-            fpoints += 10
-        if fdeck[-1][2] == "king":
-            fpoints += 10
-        if fdeck[-1][2] == "ace":
-            fpoints += 11
-        # or 1
         if fpoints > 21:
             for k in range(len(fdeck)):
                 if fdeck[k][2] == "ace":
@@ -63,7 +51,8 @@ def blackjack(blackjack_deck):
         if not user_points == 0:
             print("Do you wanna take another card?")
             choice = input("print \"yes\" or \"no\"\n")
-            if choice == "no":
+            # First letter must be "Y" or "y" in order to game will be continued
+            if not choice.startswith("y") or choice.startswith("Y"):
                 break
         randomly_index = random.randint(0, len(blackjack_deck))
         userdeck.append(blackjack_deck.pop(randomly_index))
